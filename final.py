@@ -4,11 +4,13 @@ import re
 from urllib.request import urlretrieve
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import socket
 
 
 linklist1 = []
 linklist2 = []
 linklist3 = []
+timeout = 30
 
 os.mkdir(r"C:\Newdir")
 
@@ -81,4 +83,5 @@ for i in linklist1:
         for k in linklist3:
             urlretrieve(k, tempath)
             tempath = ''
-            time.sleep(2)
+            time.sleep(5)
+            socket.setdefaulttimeout(timeout)
